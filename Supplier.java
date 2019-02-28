@@ -7,69 +7,78 @@
  */
 public class Supplier
 {
-    protected int id;
-    protected String name;
-    protected String email;
-    protected String phoneNumber;
-    protected String City;
+    private int id;
+    private String name;
+    private String email;
+    private String phoneNumber;
+    private Location location;
 
     /**
      * Constructor for objects of class Supplier
      */
-    public Supplier()
+    public Supplier(int id, String name, String email, String phoneNummber, Location location)
     {
-        
+        this.id=id;
+        this.name=name;
+        this.email=email;
+        this.phoneNumber=phoneNumber;
+        this.location=location;
+ 
     }
 
     public int getId()
     {
-        return 0;
+        return id;
     }
     
     public String getName()
     {
-        return "";
+        return name;
     }
    
     public String getEmail()
     {
-        return "";
+        return email;
     }
     
     public String getPhoneNumber()
     {
-        return "";
+        return phoneNumber;
     }
     
-    public String getCity()
+    public Location getLocation()
     {
-        return "";
+        return location;
     }
     
     public void setId(int id)
     {
-        
+        this.id=id;
     }
     
     public void setName(String name)
     {
-        
+        this.name=name;
     }
     
     public void setEmail(String email)
     {
-        
+        this.email=email;
     }
     
     public void setPhoneNumber(String phoneNumber)
     {
-        
+        this.phoneNumber=phoneNumber;
     }
     
-    public void setCity(String City)
+    public void setLocation(Location location)
+    {
+        this.location=location;
+    }
+    
+    public void printData()
     {
         
     }
-    
 }
     
