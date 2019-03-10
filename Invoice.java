@@ -1,19 +1,24 @@
 
 /**
- * Write a description of class Invoice here.
+ * Kelas Invoice ini bertujuan untuk membuat Invoice pembelian Item.
  *
  * @author Muhamad Fahriza Novriansyah
  * @version 1.0
  */
 public class Invoice
 {
-    private int id;
-    private Item item;
+    
+    private int id; 
+    private Item item; 
     private String date;
     private int totalPrice;
 
     /**
-     * Constructor for objects of class Invoice
+     * Membuat Invoice.
+     * @param id            id invoice (pembeda) yang akan dibuat
+     * @param item          item yang dibeli  ditulis di invoice yang akan dibuat
+     * @param date          tanggal pembelian ditulis di invoice yang akan dibuat
+     * @param totalPrice    total harga item invoice yang akan dibuat
      */
     public Invoice(int id, Item item, String date, int totalPrice)
     {
@@ -23,46 +28,89 @@ public class Invoice
         this.totalPrice=totalPrice;
     }
 
+    /**
+     * Method getId ini bertujuan untuk mendapatkan id invoice
+     * 
+     * @return id invoice sebagai pembeda dengan invoce lainya 
+     */
     public int getId()
     {
         return id;
     }
     
+    /**
+     * Method getItem ini bertujuan untuk mendapatkan item
+     * 
+     * @return item yang dibeli yang akan ada di invoice 
+     */
     public Item getItem()
     {
         return item;
     }
     
+    /**
+     * Method getDate ini bertujuan untuk mendapatkan tanggal pembelian item
+     * 
+     * @return tanggal pembelian item yang akan ada di invoice 
+     */
     public String getDate()
     {
         return date;
     }
     
+    /**
+     * Method getTotalPrice ini bertujuan untuk mendapatkan total harga
+     * 
+     * @return total harga item yang ada di invoice 
+     */
     public int getTotalPrice()
     {
         return totalPrice;
     }
     
+    /**
+     * Method setId ini bertujuan untuk memasukan/mengatur id invoice   
+     * item
+     * @param   id     paramerter id invoice
+     */
     public void setId(int id)
     {
         this.id=id;
     }
     
+    /**
+     * Method setItem ini bertujuan untuk memasukan/mengatur Item di invoice   
+     * item
+     * @param   item     paramerter item yang dibeli yang akan ada di Invoice 
+     */
     public void setItem(Item item)
     {
         this.item=item;
     }
     
+    /**
+     * Method setDate ini bertujuan untuk memasukan/mengatur tanggal di invoice   
+     * item
+     * @param   date     paramerter tanggal pembelian yang akan ada di Invoice 
+     */
     public void setDate(String date)
     {
         this.date=date;
     }
     
+    /**
+     * Method setTotalPrice ini bertujuan untuk memasukan/mengatur total harga di invoice   
+     * item
+     * @param   totalPrice     paramerter total harga dari item yang akan ada di Invoice 
+     */
     public void setTotalPrice(int totalPrice)
     {
         this.totalPrice=totalPrice;
     }
     
+    /**
+     * Method printData ini bertujuan untuk mengeprint data
+     */
     public void printData()
     {
         

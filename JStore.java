@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class JStore here.
+ * Kelas JStore bertujuan untuk membuat toko
  *
  * @author Muhamad Fahriza Novriansyah
  * @version 1.0
@@ -9,14 +9,17 @@ public class JStore
 {
   
     /**
-     * Constructor for objects of class JStore
+     * Membuat Jstore
      */
     public JStore()
     {
         
     }
 
-   
+   /**
+     * Method main ini adalah fungsi yang dijalankan utama 
+     * @return agrs (dummy)
+     */
    public void main(String[] agrs)
    {
        
