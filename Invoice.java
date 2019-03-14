@@ -12,6 +12,8 @@ public class Invoice
     private Item item; 
     private String date;
     private int totalPrice;
+    private int totalItem;
+    private InvoiceStatus status;
 
     /**
      * Membuat Invoice.
@@ -68,6 +70,17 @@ public class Invoice
         return totalPrice;
     }
     
+    
+    public int getTotalItem()
+    {
+        return totalItem;
+    }
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    }
+    
     /**
      * Method setId ini bertujuan untuk memasukan/mengatur id invoice   
      * item
@@ -108,12 +121,30 @@ public class Invoice
         this.totalPrice=totalPrice;
     }
     
+    public void setTotalItem(int totalItem)
+    {
+        this.totalItem=totalItem;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status=status;
+    }
+    
+    
     /**
      * Method printData ini bertujuan untuk mengeprint data
      */
     public void printData()
     {
-        
+        System.out.println("======INOVICE=====");
+        System.out.println("ID:"+id);
+        System.out.println("TANGGAL:"+ date);
+        System.out.println("ITEM:"+ item);
+        System.out.println("TOTALITEM:"+ totalItem);
+        System.out.println("TOTALHARGA:"+totalPrice);
+        System.out.println("STATUS:"+ status);
+      
     }
     
 }

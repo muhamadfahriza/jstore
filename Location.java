@@ -89,8 +89,12 @@ public class Location
      * Method printData ini bertujuan untuk mengeprint data
      */
     public void printData()
-    {
-        
+    { 
+        System.out.println("======LOCATION=====");
+        System.out.println("PROVINSI:"+ province);
+        System.out.println("KOTA:"+ city);
+        System.out.println("DESKRIPSI LOKASI:"+ description);
+ 
     }
 
 }

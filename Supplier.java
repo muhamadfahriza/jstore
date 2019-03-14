@@ -139,9 +139,18 @@ public class Supplier
     /**
      * Method printData ini bertujuan untuk mengeprint data
      */
+    
     public void printData()
-    {
+    { 
+        System.out.println("======SUPPLIER=====");
+        System.out.println("ID:"+id);
+        System.out.println("NAMA:"+name);
+        System.out.println("EMAIL:"+email);
+        System.out.println("NOMOR TELEPON:"+ phoneNumber);
+        System.out.println("LOKASI SUPPLIER:"+ location);
         
+ 
     }
+    
 }
     

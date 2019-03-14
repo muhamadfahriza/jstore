@@ -8,6 +8,7 @@ public class DatabaseItem
 {
   
     private String[] listItem;
+    public Item itemDB;
     
     
     /**
@@ -22,20 +23,27 @@ public class DatabaseItem
      * Method addItem ini bertujuan untuk menambah Item
      *  
      */
-   public void addItem()
+   public boolean addItem(Item item)
    {
-       
+       itemDB = item;
+       return false;
    }
    
    /**
      * Method removeItem ini bertujuan untuk menghapus Item
      *  
      */
-   public void removeItem()
+   public boolean removeItem(Item item)
    {
-       
+       return false;
    }
    
+  
+   public Item getItem()
+    {
+        return itemDB;
+    }
+    
    /**
      * Method getItemDatabase ini bertujuan untuk mendapat Item Database
      *  

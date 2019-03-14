@@ -1,13 +1,18 @@
 #BlueJ class context
 comment0.target=DatabaseItem
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseItem\ here.\r\n\r\n\ @author\ Muhamad\ Fahriza\ Novriansyah\r\n\ @version\ 1.0\r\n
+comment0.text=\r\n\ Kelas\ DatabaseItem\ ini\ bertujuan\ untuk\ mengumpulkan\ data\ Item\ dimana\ bisa\ menambah\ dan\ mengahapus\ item\r\n\r\n\ @author\ Muhamad\ Fahriza\ Novriansyah\r\n\ @version\ 1.0\r\n
 comment1.params=
 comment1.target=DatabaseItem()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ DatabaseItem\r\n
-comment2.params=
-comment2.target=void\ addItem()
-comment3.params=
-comment3.target=void\ removeItem()
+comment1.text=\r\n\ Membuat\ DatabaseItem.\r\n
+comment2.params=item
+comment2.target=boolean\ addItem(Item)
+comment2.text=\r\n\ Method\ addItem\ ini\ bertujuan\ untuk\ menambah\ Item\r\n\ \ \r\n
+comment3.params=item
+comment3.target=boolean\ removeItem(Item)
+comment3.text=\r\n\ Method\ removeItem\ ini\ bertujuan\ untuk\ menghapus\ Item\r\n\ \ \r\n
 comment4.params=
-comment4.target=void\ getItemDatabase()
-numComments=5
+comment4.target=Item\ getItem()
+comment5.params=
+comment5.target=void\ getItemDatabase()
+comment5.text=\r\n\ Method\ getItemDatabase\ ini\ bertujuan\ untuk\ mendapat\ Item\ Database\r\n\ \ \r\n
+numComments=6

@@ -12,8 +12,9 @@ public class Item
     private String name;
     private int stock;
     private int price;
-    private String category;
     private Supplier supplier;
+    private ItemCategory category;
+    private ItemStatus status ;    
 
     /**
      * Membuat Item.
@@ -24,14 +25,16 @@ public class Item
      * @param category      kategori dari item yang akan dibuat
      * @param supplier      supplier dari item yang akan dibuat
      */
-    public Item(int id, String name, int stock, int price, String category, Supplier supplier)
+    public Item(int id, String name, int stock,ItemStatus status, int price, ItemCategory category, Supplier supplier)
     {
         this.id=id;
         this.name=name;
         this.stock=stock;
+        this.status=status;
         this.price=price;
         this.category=category;
         this.supplier=supplier;
+        
     }
 
     /**
@@ -64,6 +67,8 @@ public class Item
         return stock;
     }
     
+   
+    
     /**
      * Method getPrice ini bertujuan untuk mendapatkan harga dari 
      * item
@@ -81,9 +86,14 @@ public class Item
      * 
      * @return nama kategori dari Item 
      */
-    public String getCategory()
+    public ItemCategory getCategory()
     {
         return category;
+    }
+    
+    public ItemStatus getStatus()
+    {
+        return status;
     }
     
     /**
@@ -142,11 +152,15 @@ public class Item
      * item
      * @param  category paramerter kaategori dari item yang akan di set 
      */
-    public void setCategory(String category)
+    public void setCategory(ItemCategory category)
     {
         this.category=category;
     }
     
+    public void setStatus(ItemStatus status)
+    {
+        this.status=status;
+    }
     
     /**
      * Method setSupplier ini bertujuan untuk memasukan/mengatur supplier   
@@ -163,7 +177,15 @@ public class Item
      */
     public void printData()
     {
-        
+        System.out.println("======ITEM=====");
+        System.out.println("ID:"+id);
+        System.out.println("NAMA:"+ name);
+        System.out.println("STOK:"+ stock);
+        System.out.println("PRICE:"+ price);
+        System.out.println("KATEGORI:"+category);
+        System.out.println("STATUS:"+ status);
+        System.out.println("SUPPLIER"+ supplier);
+       
     }
     
 }
