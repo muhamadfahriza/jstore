@@ -21,12 +21,9 @@ public enum InvoiceStatus
         return statusInvoice;
     }
     
-    public static void main(String[] args) {
-
-        for (InvoiceStatus statusInvoice : InvoiceStatus.values()) {
-            System.out.println(statusInvoice.toString());
-        }
-
+    @Override
+    public String toString(){
+        return this.statusInvoice;
     }
   
     

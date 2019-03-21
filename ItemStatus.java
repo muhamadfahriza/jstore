@@ -22,12 +22,9 @@ public enum ItemStatus
         return statusItem;
     }
     
-    public static void main(String[] args) {
-
-        for (ItemStatus statusItem : ItemStatus.values()) {
-            System.out.println(statusItem.toString());
-        }
-
+    @Override
+    public String toString(){
+        return this.statusItem;
     }
   
     

@@ -25,16 +25,14 @@ public class JStore
      */
    public static void main(String[] agrs)
    {
+     
         Location tempatTinggal = new Location("Kuningan", "Jawa Barat", "Kota Keren");
-        Supplier Fahriza = new Supplier(1, "Fahriza", "mfnovriansyah", "085755783673", tempatTinggal);
+        Supplier Fahriza = new Supplier(1, "Fahriza", "Mfnovriasnyah@gmail.com", "085755783673", tempatTinggal);
+        Item baruItem   = new Item (1, "Buku", 2,ItemStatus.NEW, 20000, ItemCategory.ELECTRONICS ,Fahriza );
+      
+         
+     
         
-        tempatTinggal.printData();
-        Fahriza.printData();
-        
-        Transaction transaksi = new Transaction();        
-        transaksi.orderNewItem(Fahriza);
-        transaksi.orderSecondItem(Fahriza);
-        transaksi.orderRefurbished(Fahriza);
         
       
    }

@@ -7,9 +7,9 @@
  */
 public enum ItemCategory
 {
-    ELECTRONICS ("Electronics"),
-    FURNITURE("Furniture"),
-    STATIONERY("Stationery");
+        ELECTRONICS ("Electronics"),
+        FURNITURE("Furniture"),
+        STATIONERY("Stationery");
     
     private String categoryItem;
     

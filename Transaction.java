@@ -45,83 +45,54 @@ public class Transaction
      * @return id dari Item 
      */
     
-    public void orderNewItem(Supplier supplier )
+    public void orderNewItem(Item item )
     {
-   
-        Item itemBaru = new Item(1, "PC RYZEN", 10,itemStatus.NEW, 15000000, itemCategory.ELECTRONICS,  supplier);
-        databaseItem.addItem(itemBaru);
         Date date = new Date();
-        Invoice InvoiceBaruNew = new Invoice(789, itemBaru, date.toString(), itemBaru.getPrice());
-        itemBaru.setStatus(itemStatus.NEW);
-        InvoiceBaruNew.setInvoiceStatus(InvoiceStatus.PAID);
-        itemBaru.printData();
-        InvoiceBaruNew.printData();
+        
+        Invoice Buy_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
+       
+        if( Buy_Paid instanceof Sell_Paid )      
+            System.out.println( "Benar Invoice Type adalah Sell_Paid" );    
+        else 
+            System.out.println("Salah,Invoice Type bukan Sell _Paid" );  
         
         
     }
     
-    public void orderSecondItem(Supplier supplier)
+    public void orderSecondItem(Item item)
     {
+        Date date = new Date();
         
-        Item itemSecond = new Item(2, "Handphone Samsung j5", 10,itemStatus.SECOND, 5000000, itemCategory.ELECTRONICS,  supplier);
-        databaseItem.addItem(itemSecond);
-        Invoice invoiceSecond = new Invoice(789, itemSecond, "6 Maret 2019", itemSecond.getPrice());
-        itemSecond.setStatus(ItemStatus.NEW);
-        invoiceSecond.setInvoiceStatus(InvoiceStatus.PAID);
-        itemSecond.printData();
-        invoiceSecond.printData();
+        Invoice Buy_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
+        
     }
     
-    public void orderRefurbished(Supplier supplier)
+    public  void orderRefurbished(Item item)
     {
-        Item itemRefurbished = new Item(3, "Handphone BlackBerry ", 10,itemStatus.REFURBISHED, 100000, itemCategory.ELECTRONICS,  supplier);
-        databaseItem.addItem(itemRefurbished);
-        Invoice invoiceRefurbished = new Invoice(789, itemRefurbished, "6 Maret 2019", itemRefurbished.getPrice());
-        itemRefurbished.setStatus(ItemStatus.NEW);
-        invoiceRefurbished.setInvoiceStatus(InvoiceStatus.PAID);
-        itemRefurbished.printData();
-        invoiceRefurbished.printData();
+        Date date = new Date();
+        
+        Invoice Buy_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
     }
     
     public static void sellItemPaid(Item item)
     {
         Date date = new Date();
         
-        Invoice invoiceBaru = new Invoice(1, item, date.toString(),
-                                        item.getPrice());
-        invoiceBaru.setInvoiceStatus(InvoiceStatus.PAID); 
-        item.setStatus(ItemStatus.SOLD);
-               
-        invoiceBaru.printData();
-        item.printData();     
-        System.out.println();        
+        Invoice Sell_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
+              
     }
     
     public static void sellItemUnpaid(Item item)
     {
-        Date date = new Date();
-        
-        Invoice invoiceBaru = new Invoice(1, item, date.toString(),
-                                        item.getPrice());
-        invoiceBaru.setInvoiceStatus(InvoiceStatus.UNPAID); 
-        item.setStatus(ItemStatus.SOLD);
-              
-        invoiceBaru.printData();
-        item.printData();   
-        System.out.println();        
+        Date date = new Date(); 
+        Invoice Sell_Unpaid = new Invoice(1, item, date.toString(),2,item.getPrice());      
     }
     
     public static void sellItemInstallment(Item item)
     {
-        Date date = new Date();
-        
-        Invoice invoiceBaru = new Invoice(1, item, date.toString(),item.getPrice());
-        invoiceBaru.setInvoiceStatus(InvoiceStatus.INSTALLMENT); 
-        item.setStatus(ItemStatus.SOLD);
-              
-        invoiceBaru.printData();
-        item.printData();    
-        System.out.println();        
+        Date date = new Date();   
+        Invoice Buy_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
+                
     }
     
 }

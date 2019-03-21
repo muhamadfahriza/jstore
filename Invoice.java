@@ -11,9 +11,10 @@ public class Invoice
     private int id; 
     private Item item; 
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
 
     /**
      * Membuat Invoice.
@@ -22,11 +23,12 @@ public class Invoice
      * @param date          tanggal pembelian ditulis di invoice yang akan dibuat
      * @param totalPrice    total harga item invoice yang akan dibuat
      */
-    public Invoice(int id, Item item, String date, int totalPrice)
+    public Invoice(int id, Item item, String date,int totalItem, int totalPrice)
     {
         this.id=id;
         this.item=item;
         this.date=date;
+        this.totalItem=totalItem;
         this.totalPrice=totalPrice;
     }
 
@@ -131,6 +133,12 @@ public class Invoice
         this.status=status;
     }
     
+   
+ 
+    public InvoiceType getInvoiceType()
+    {
+        return type;
+    }
     
     /**
      * Method printData ini bertujuan untuk mengeprint data
