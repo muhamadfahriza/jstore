@@ -1,4 +1,4 @@
-
+import java.util.Calendar;
 /**
  * Kelas Invoice ini bertujuan untuk membuat Invoice pembelian Item.
  *
@@ -10,8 +10,8 @@ public class Invoice
     
     private int id; 
     private Item item; 
-    private String date;
-    protected int totalPrice;
+    private Calendar date;
+    private int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
     private InvoiceType type;
@@ -23,13 +23,11 @@ public class Invoice
      * @param date          tanggal pembelian ditulis di invoice yang akan dibuat
      * @param totalPrice    total harga item invoice yang akan dibuat
      */
-    public Invoice(int id, Item item, String date,int totalItem, int totalPrice)
+    public Invoice(int id,Item item,int totalItem)
     {
         this.id=id;
         this.item=item;
-        this.date=date;
         this.totalItem=totalItem;
-        this.totalPrice=totalPrice;
     }
 
     /**
@@ -57,7 +55,7 @@ public class Invoice
      * 
      * @return tanggal pembelian item yang akan ada di invoice 
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -108,7 +106,7 @@ public class Invoice
      * item
      * @param   date     paramerter tanggal pembelian yang akan ada di Invoice 
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date=date;
     }
@@ -118,9 +116,9 @@ public class Invoice
      * item
      * @param   totalPrice     paramerter total harga dari item yang akan ada di Invoice 
      */
-    public void setTotalPrice(int totalPrice)
+    public void setTotalPrice(int totalPrice, int totalItem, Item item)
     {
-        this.totalPrice=totalPrice;
+        this.totalPrice=totalItem * item.getPrice();
     }
     
     public void setTotalItem(int totalItem)
@@ -134,10 +132,15 @@ public class Invoice
     }
     
    
- 
     public InvoiceType getInvoiceType()
     {
         return type;
+    }
+    
+    
+    public String toString()
+    {
+        return super.toString();
     }
     
     /**

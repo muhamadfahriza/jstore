@@ -152,5 +152,11 @@ public class Supplier
  
     }
     
+    public String toString()
+    {
+       System.out.println("supplier:"+id);
+       return name;
+    }
+    
 }
     

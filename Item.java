@@ -188,5 +188,11 @@ public class Item
        
     }
     
+    public String toString()
+    {
+       System.out.println("ID:"+id);
+       return name;
+    }
+    
 }
     

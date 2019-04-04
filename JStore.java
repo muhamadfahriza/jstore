@@ -30,7 +30,10 @@ public class JStore
         Supplier Fahriza = new Supplier(1, "Fahriza", "Mfnovriasnyah@gmail.com", "085755783673", tempatTinggal);
         Item baruItem   = new Item (1, "Buku", 2,ItemStatus.NEW, 20000, ItemCategory.ELECTRONICS ,Fahriza );
       
-         
+         Transaction transaksi = new Transaction();        
+        transaksi.orderNewItem(baruItem);
+        transaksi.orderSecondItem(baruItem);
+        transaksi.orderRefurbished(baruItem);
      
         
         
