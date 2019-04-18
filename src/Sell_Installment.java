@@ -80,7 +80,6 @@ public class Sell_Installment extends Invoice
 
             String itemIteration =  "Id			: " + j.getId() + "\n" +
                     "Name		: " + j.getName() + "\n" +
-                    "Stock 		: " + j.getStock() + "\n" +
                     "Price		: " + j.getPrice() +  "\n" +
                     "Category 	: " + j.getCategory() + "\n" +
                     "Status		: " + j.getStatus() + "\n\n";

@@ -9,7 +9,7 @@ public class DatabaseInvoice
 {
     // instance variables - replace the example below with your own
     private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<>();
-    private static int LAST_INVOICE_ID = 0;
+    private static int LAST_INVOICE_ID ;
     public static ArrayList<Invoice> getInvoiceDatabase()
     {
         return INVOICE_DATABASE;
@@ -21,14 +21,26 @@ public class DatabaseInvoice
 
 
 
-    public boolean addInvoice(Invoice invoice)
+    public static boolean addInvoice(Invoice invoice)throws InvoiceAlreadyExistsException
     {
+        for(Invoice i : INVOICE_DATABASE)
+        {
+            if(i.getItem().equals(invoice.getItem()) && i.getCustomer().equals(invoice.getCustomer()))
+            {
+                throw new InvoiceAlreadyExistsException(invoice);
+            }
+        }
+
+        INVOICE_DATABASE.add(invoice);
+        LAST_INVOICE_ID = invoice.getId();
+
+
         INVOICE_DATABASE.add(invoice);
 
         return true;
     }
     
-    public void removeCustomer(Customer customer)
+    public static boolean removeInvoice(int id)throws InvoiceNotFoundException
     {
         for(Invoice i : INVOICE_DATABASE)
         {
@@ -44,11 +56,10 @@ public class DatabaseInvoice
                 return true;
             }
         }
-
-        return false;
+        throw new InvoiceNotFoundException(id);
     }
     
-    public Invoice getInvoice()
+    public static Invoice getInvoice(int id)
     {
         for(Invoice i : INVOICE_DATABASE)
         {
@@ -59,19 +70,32 @@ public class DatabaseInvoice
         return null;
     }
 
-    public static Invoice getActiveOrder(Customer customer)
+    public static ArrayList<Invoice> getActiveOrder(Customer customer) throws CustomerDoesntHaveActiveException
     {
+        ArrayList<Invoice> list = new  ArrayList<Invoice>();
+        boolean found = false;
+
         for(Invoice i : INVOICE_DATABASE)
         {
-            if((i.getInvoiceStatus() == InvoiceStatus.Unpaid ||
-                    i.getInvoiceStatus() == InvoiceStatus.Installment) &&
-                    i.getCustomer() == customer)
+            if((i.getInvoiceStatus() == InvoiceStatus.UNPAID ||
+                    i.getInvoiceStatus() == InvoiceStatus.INSTALLMENT) &&
+                    i.getCustomer() == customer && i.getIsActive() == true)
             {
-                if(i.getIsActive() == true)
-                    return i;
+                    list.add(i);
+                    found = true;
+            }
+            else{
+                throw new CustomerDoesntHaveActiveException(customer);
             }
         }
-
-        return null;
+        if(found)
+        {
+            return list;
+        }
+        else
+        {
+            return null;
+        }
     }
 }
+

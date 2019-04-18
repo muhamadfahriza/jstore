@@ -5,151 +5,123 @@ import java.util.*;
  * @author Muhamad Fahriza Novriansyah
  * @version 1.0
  */
-public class Invoice
-{
-    
+public abstract class Invoice {
+
     private int id;
     private ArrayList<Integer> item;
     private Calendar date;
     private int totalPrice;
     private boolean isActive;
     private Customer customer;
+    private static InvoiceType INVOICE_TYPE;
+    private static InvoiceStatus INVOICE_STATUS;
 
 
-    /**
-     * Membuat Invoice.
-     * @param id            id invoice (pembeda) yang akan dibuat
-     * @param item          item yang dibeli  ditulis di invoice yang akan dibuat
-     * @param date          tanggal pembelian ditulis di invoice yang akan dibuat
-     * @param totalPrice    total harga item invoice yang akan dibuat
-     */
-    public Invoice(ArrayList<Integer> item)
-    {
+    public Invoice(ArrayList<Integer> item) {
         this.item = item;
         date = new GregorianCalendar();
 
         id = DatabaseInvoice.getLastInvoiceId() + 1;
 
         totalPrice = 0;
-        for(int i : this.item)
-        {
+        for (int i : this.item) {
             totalPrice += DatabaseItem.getItemFromId(i).getPrice();
         }
     }
 
     /**
      * Method getId ini bertujuan untuk mendapatkan id invoice
-     * 
-     * @return id invoice sebagai pembeda dengan invoce lainya 
+     *
+     * @return id invoice sebagai pembeda dengan invoce lainya
      */
-    public int getId()
-    {
+    public int getId() {
         return id;
     }
-    
-    /**
-     * Method getItem ini bertujuan untuk mendapatkan item
-     * 
-     * @return item yang dibeli yang akan ada di invoice 
-     */
-    public Item getItem()
-    {
-        return item;
-    }
-    
+
     /**
      * Method getDate ini bertujuan untuk mendapatkan tanggal pembelian item
-     * 
-     * @return tanggal pembelian item yang akan ada di invoice 
+     *
+     * @return tanggal pembelian item yang akan ada di invoice
      */
-    public Calendar getDate()
-    {
+    public Calendar getDate() {
         return date;
     }
-    
 
-    public InvoiceStatus getInvoiceStatus()
-    {
-        return status;
+
+    public InvoiceStatus getInvoiceStatus() {
+        return INVOICE_STATUS;
     }
 
-    public InvoiceType getInvoiceType()
-    {
-        return type;
+    public InvoiceType getInvoiceType() {
+        return INVOICE_TYPE;
     }
 
-    public boolean getIsActive()
-    {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public Customer getCustomer()
-    {
+    public Customer getCustomer() {
         return customer;
     }
 
+    public int getTotalPrice()
+    {
+        return totalPrice;
+    }
+    public ArrayList<Integer> getItem()
+    {
+        return item;
+    }
 
     /**
-     * Method setId ini bertujuan untuk memasukan/mengatur id invoice   
+     * Method setId ini bertujuan untuk memasukan/mengatur id invoice
      * item
-     * @param   id     paramerter id invoice
+     *
+     * @param id paramerter id invoice
      */
-    public void setId(int id)
-    {
-        this.id=id;
+    public void setId(int id) {
+        this.id = id;
     }
-    
+
     /**
-     * Method setItem ini bertujuan untuk memasukan/mengatur Item di invoice   
+     * Method setItem ini bertujuan untuk memasukan/mengatur Item di invoice
      * item
-     * @param   item     paramerter item yang dibeli yang akan ada di Invoice 
+     *
+     * @param item paramerter item yang dibeli yang akan ada di Invoice
      */
-    public void setItem(Item item)
-    {
-        this.item=item;
+    public void setItem(ArrayList<Integer> item) {
+        this.item = item;
     }
-    
+
     /**
-     * Method setDate ini bertujuan untuk memasukan/mengatur tanggal di invoice   
+     * Method setDate ini bertujuan untuk memasukan/mengatur tanggal di invoice
      * item
-     * @param   date     paramerter tanggal pembelian yang akan ada di Invoice 
+     *
+     * @param date paramerter tanggal pembelian yang akan ada di Invoice
      */
-    public void setDate(Calendar date)
-    {
-        this.date=date;
+    public void setDate(Calendar date) {
+        this.date = date;
     }
-    
+
     /**
-     * Method setTotalPrice ini bertujuan untuk memasukan/mengatur total harga di invoice   
+     * Method setTotalPrice ini bertujuan untuk memasukan/mengatur total harga di invoice
      * item
-     * @param   totalPrice     paramerter total harga dari item yang akan ada di Invoice 
+     *
+     * @param totalPrice paramerter total harga dari item yang akan ada di Invoice
      */
-    public void setTotalPrice(int totalPrice)
-    {
+    public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
 
     }
-    
-    public void setTotalItem(int totalItem)
-    {
-        this.totalItem=totalItem;
-    }
-    
-    public void setInvoiceStatus(InvoiceStatus status)
-    {
-        this.status=status;
-    }
 
-    public void setIsActive(boolean isActive)
-    {
+
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
-    public abstract String toString();
-    
-    /**
-     * Method printData ini bertujuan untuk mengeprint data
-     */
+    public abstract String  toString();
+
+
 
 }
     

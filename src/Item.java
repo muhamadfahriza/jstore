@@ -10,7 +10,6 @@ public class Item
 {
     private int id;
     private String name;
-    private int stock;
     private int price;
     private Supplier supplier;
     private ItemCategory category;
@@ -20,16 +19,14 @@ public class Item
      * Membuat Item.
      * @param id            id item yang akan dibuat
      * @param name          nama item yang akan dibuat
-     * @param stock         stok dari item yang akan dibuat
      * @param price         harga dari item yang akan dibuat
      * @param category      kategori dari item yang akan dibuat
      * @param supplier      supplier dari item yang akan dibuat
      */
-    public Item(int id, String name, int stock,ItemStatus status, int price, ItemCategory category, Supplier supplier)
+    public Item(int id, String name,ItemStatus status, int price, ItemCategory category, Supplier supplier)
     {
         this.id=id;
         this.name=name;
-        this.stock=stock;
         this.status=status;
         this.price=price;
         this.category=category;
@@ -56,19 +53,7 @@ public class Item
     {
         return name;
     }
-    
-    /**
-     * Method getStock ini bertujuan untuk mendapatkan stok dari item
-     * 
-     * @return stok Item yang ada 
-     */
-    public int getStock()
-    {
-        return stock;
-    }
-    
-   
-    
+
     /**
      * Method getPrice ini bertujuan untuk mendapatkan harga dari 
      * item
@@ -79,7 +64,7 @@ public class Item
     {
         return price;
     }
-    
+
     /**
      * Method getCategory ini bertujuan untuk mendapatkan nama kategori dari 
      * item
@@ -126,17 +111,7 @@ public class Item
     {
         this.name=name;
     }
-    
-    /**
-     * Method setStock ini bertujuan untuk memasukan/mengatur stok dari item
-     * 
-     * @param  stock paramerter stok dari item yang akan di set 
-     */
-    public void setStock(int stock)
-    {
-        this.stock=stock;
-    }
-    
+
     /**
      * Method setPrice ini bertujuan untuk memasukan/mengatur harga item
      * 
@@ -179,7 +154,6 @@ public class Item
         return  "===========ITEM===========" + "\n" +
                 "ID: " + id + "\n" +
                 "Name: " + name + "\n" +
-                "Stock: " + stock + "\n" +
                 "Category: " + category + "\n" +
                 "Status: " + status + "\n" +
                 "Supplier: " + supplier.getName() + "\n";

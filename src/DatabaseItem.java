@@ -25,16 +25,17 @@ public class DatabaseItem
      * Method addItem ini bertujuan untuk menambah Item
      *  
      */
-   public static boolean addItem(Item item)
+
+    public static boolean addItem(Item item)throws ItemAlreadyExistsException
    {
        for(Item i : ITEM_DATABASE)
        {
-           if(i.getName().equals(item.getName()) &&
-                   i.getStatus().equals(item.getStatus()) &&
-                   i.getSupplier().equals(item.getSupplier())
-           )
+           if(i.getName() == item.getName() &&
+                   i.getStatus() == item.getStatus()
+                   && i.getSupplier() == item.getSupplier() &&
+                   i.getCategory() == item.getCategory())
            {
-               return false;
+               throw new ItemAlreadyExistsException(item);
            }
        }
 
@@ -107,7 +108,7 @@ public class DatabaseItem
      * Method removeItem ini bertujuan untuk menghapus Item
      *  
      */
-   public static boolean removeItem(int id)
+   public static boolean removeItem(int id)throws ItemNotFoundException
    {
        for(Item i : ITEM_DATABASE)
        {
@@ -118,10 +119,6 @@ public class DatabaseItem
                return true;
            }
        }
-
-       return false;
+       throw new ItemNotFoundException(id);
    }
-   
-  
-
 }

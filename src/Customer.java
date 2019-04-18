@@ -41,9 +41,10 @@ public class Customer
         this.username=username;
         this.password=password;
         Calendar birthDate = new GregorianCalendar(year,month, dayOfMonth);
-        id = DatabaseCustomer.getLastCustomerId() + 1;
+        this.id=  DatabaseCustomer.getLastCustomerId() + 1;
 
     }
+
 
     public String getName()
     {
@@ -99,7 +100,7 @@ public class Customer
         }
         else 
         {
-            this.email = null;
+            this.email = "test";
         }
     }
     
@@ -110,8 +111,7 @@ public class Customer
     
     public void setPassword(String password)
     {
-        String passRegex = "/^.{6,}$/"+
-                            "[a-zA-z0-9_+&*-]+)*@";
+        String passRegex = "/^.{6,}$/"+ "[a-zA-z0-9_+&*-]+@";
         Pattern pat = Pattern.compile(passRegex);
         Matcher matcher = pat.matcher(password);
         if (matcher.matches())
@@ -120,7 +120,7 @@ public class Customer
         }
         else 
         {
-            this.password = null;
+            this.password = "test";
         }
     }
     
@@ -148,7 +148,7 @@ public class Customer
                 "Password: " + password + "\n" +
                 "ID: " + id + "\n" +
                 "Birth date: "
-                + birthDate.getTime() + "\n";
+                + birthDate+ "\n";
     }
 }
 

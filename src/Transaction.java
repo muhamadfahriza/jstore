@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.*;
 /**
  * Write a description of class Transaction here.
  *
@@ -20,66 +21,64 @@ public class Transaction
 
     /**
      * Method getId ini bertujuan untuk mendapatkan id item
-     * 
-     * @return id dari Item 
+     *
+     * @return id dari Item
      */
-    
-    public void orderNewItem(Item item )
-    {
+
+    public void orderNewItem(ArrayList<Integer> item ) throws InvoiceAlreadyExistsException {
         ArrayList<Integer> order = new ArrayList<>();
-        order.add(item.getId());
+        //order.add(item.getId());
         Invoice buyPaid = new Buy_Paid(order);
         DatabaseInvoice.addInvoice(buyPaid);
     }
-    
-    public void orderSecondItem(Item item)
-    {
+
+    public void orderSecondItem(ArrayList<Integer> item) throws InvoiceAlreadyExistsException {
         ArrayList<Integer> order = new ArrayList<>();
 
-        order.add(item.getId());
+        //order.add(item.getId());
 
         Invoice buyPaid = new Buy_Paid(order);
 
         DatabaseInvoice.addInvoice(buyPaid);
     }
-    
-    public  void orderRefurbished(Item item)
-    {
+
+    public  void orderRefurbished(ArrayList<Integer> item) throws InvoiceAlreadyExistsException {
         ArrayList<Integer> order = new ArrayList<>();
 
-        order.add(item.getId());
+        //order.add(item.getId());
 
         Invoice buyPaid = new Buy_Paid(order);
 
         DatabaseInvoice.addInvoice(buyPaid);
 
     }
-    
-    public static void sellItemPaid(Item item, Customer customer)
-    {
-        Date date = new Date();
-        
-        Invoice Sell_Paid = new Invoice(1, item, date.toString(),2,item.getPrice());
-              
-    }
-    
-    public static void sellItemUnpaid(Item item,  Customer customer)
-    {
+
+    public static void sellItemPaid(ArrayList<Integer> item, Customer customer) throws InvoiceAlreadyExistsException {
         ArrayList<Integer> sell = new ArrayList<>();
 
-        sell.add(item.getId());
+       // sell.add(item.getId());
 
         Invoice sellPaid = new Sell_Paid(sell, customer);
 
         DatabaseInvoice.addInvoice(sellPaid);
 
     }
-    
-    public static void sellItemInstallment(Item item, Customer customer, int installmentPeriod)
-    {
+
+    public static void sellItemUnpaid(ArrayList<Integer> item,  Customer customer) throws InvoiceAlreadyExistsException {
         ArrayList<Integer> sell = new ArrayList<>();
 
-        sell.add(item.getId());
+       // sell.add(item.getId());
+
+        Invoice sellPaid = new Sell_Paid(sell, customer);
+
+        DatabaseInvoice.addInvoice(sellPaid);
+
+    }
+
+    public static void sellItemInstallment(ArrayList<Integer> item, Customer customer, int installmentPeriod) throws InvoiceAlreadyExistsException {
+        ArrayList<Integer> sell = new ArrayList<>();
+
+       // sell.add(item.getId());
 
         Invoice sellInstallment = new Sell_Installment(sell,
                 installmentPeriod, customer);
@@ -90,24 +89,26 @@ public class Transaction
     public boolean finishTransaction(Invoice invoice)
     {
         Invoice finish = DatabaseInvoice.getInvoice(invoice.getId());
-
-        if(finish == null)
+        if(finish == null){
             return false;
+        }
+        if(invoiceStatus== invoiceStatus.UNPAID ||invoiceStatus== invoiceStatus.INSTALLMENT) {
+            finish.setIsActive(false);
 
-        finish.setIsActive(false);
+            System.out.println("Status aktif invoice: " + finish.getIsActive());
 
-        System.out.println("Status aktif invoice: " + finish.getIsActive());
-
-        return true;
+            return true;
+        }
+        return false;
     }
 
-    public boolean cancelTransaction(Invoice invoice)
-    {
+    public boolean cancelTransaction(Invoice invoice) throws InvoiceNotFoundException {
         Invoice cancel = DatabaseInvoice.getInvoice(invoice.getId());
-
-        if(DatabaseInvoice.removeInvoice(invoice.getId()))
-            return true;
-        else
-            return false;
+        if (invoiceStatus == invoiceStatus.UNPAID || invoiceStatus == invoiceStatus.INSTALLMENT) {
+            if (DatabaseInvoice.removeInvoice(invoice.getId())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

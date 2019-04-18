@@ -56,7 +56,6 @@ public class Sell_Paid extends Invoice
 
             String itemIteration =  "Id			: " + j.getId() + "\n" +
                     "Name		: " + j.getName() + "\n" +
-                    "Stock 		: " + j.getStock() + "\n" +
                     "Price		: " + j.getPrice() +  "\n" +
                     "Category 	: " + j.getCategory() + "\n" +
                     "Status		: " + j.getStatus() + "\n\n";
