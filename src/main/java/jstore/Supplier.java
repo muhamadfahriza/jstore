@@ -11,7 +11,7 @@ import java.util.regex.*;
  */
 public class Supplier
 {
-    private int id;
+    private int id = DatabaseSupplier.getLastSupplierId() + 1;
     private String name;
     private String email;
     private String phoneNumber;
@@ -19,21 +19,17 @@ public class Supplier
 
     /**
      * Membuat Supplier.
-     * @param id            id Supplier yang akan dibuat
      * @param name          nama Supplier yang akan dibuat
      * @param email         email dari Supplier yang akan dibuat
-     * @param phoneNummber  nomor hp dari Supplier yang akan dibuat
+     * @param phoneNumber  nomor hp dari Supplier yang akan dibuat
      * @param location      lokasi dari Supplier yang akan dibuat
      */
-    public Supplier(int id, String name, String email, String phoneNummber, Location location)
+    public Supplier(String name, String email, String phoneNumber , Location location)
     {
-        this.id=id;
         this.name=name;
         this.email=email;
         this.phoneNumber=phoneNumber;
         this.location=location;
-
-        id = DatabaseSupplier.getLastSupplierId() + 1;
  
     }
 

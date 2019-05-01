@@ -21,7 +21,7 @@ public class Buy_Paid extends Invoice
     {
         // initialise instance variables
         super(item);
-        isActive = false;
+        super.setIsActive(false);
     }
 
     public InvoiceStatus getInvoiceStatus()

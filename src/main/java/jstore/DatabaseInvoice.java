@@ -36,9 +36,6 @@ public class DatabaseInvoice
         INVOICE_DATABASE.add(invoice);
         LAST_INVOICE_ID = invoice.getId();
 
-
-        INVOICE_DATABASE.add(invoice);
-
         return true;
     }
     
@@ -85,19 +82,14 @@ public class DatabaseInvoice
             {
                     list.add(i);
                     found = true;
+
             }
             else{
-                throw new CustomerDoesntHaveActiveException(customer);
+                //return null;
+                new CustomerDoesntHaveActiveException(customer);
             }
         }
-        if(found)
-        {
-            return list;
-        }
-        else
-        {
-            return null;
-        }
+        return list;
     }
 }
 

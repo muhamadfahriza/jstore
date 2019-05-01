@@ -88,29 +88,26 @@ public class Transaction
         DatabaseInvoice.addInvoice(sellInstallment);
     }
 
-    public boolean finishTransaction(Invoice invoice)
+    public static boolean finishTransaction(Invoice invoice)
     {
         Invoice finish = DatabaseInvoice.getInvoice(invoice.getId());
         if(finish == null){
             return false;
         }
-        if(invoiceStatus== invoiceStatus.UNPAID ||invoiceStatus== invoiceStatus.INSTALLMENT) {
+        else {
             finish.setIsActive(false);
-
             System.out.println("Status aktif invoice: " + finish.getIsActive());
-
             return true;
         }
-        return false;
     }
 
-    public boolean cancelTransaction(Invoice invoice) throws InvoiceNotFoundException {
+    public static boolean cancelTransaction(Invoice invoice) throws InvoiceNotFoundException {
         Invoice cancel = DatabaseInvoice.getInvoice(invoice.getId());
-        if (invoiceStatus == invoiceStatus.UNPAID || invoiceStatus == invoiceStatus.INSTALLMENT) {
-            if (DatabaseInvoice.removeInvoice(invoice.getId())) {
-                return true;
-            }
+        if (cancel == null) {
+            return false;
+        } else {
+            DatabaseInvoice.removeInvoice(invoice.getId());
+            return true;
         }
-        return false;
     }
 }

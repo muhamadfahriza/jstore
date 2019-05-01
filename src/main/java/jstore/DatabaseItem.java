@@ -11,8 +11,6 @@ public class DatabaseItem
 {
     private static ArrayList<Item> ITEM_DATABASE = new ArrayList<>();
     private static int LAST_ITEM_ID = 0;
-
-
     public static ArrayList<Item> getItemDatabase()
     {
         return ITEM_DATABASE;

@@ -41,6 +41,24 @@ public class DatabaseCustomer
 
         return true;
     }
+
+    public static Customer getCustomerLogin(String email, String password)
+    {
+        for(Customer i : CUSTOMER_DATABASE)
+        {
+            if(i.getEmail().equals(email) &&
+                    i.getPassword().equals(password)
+            )
+            {
+                //LAST_CUSTOMER_ID = customer.getId();
+                return i;
+            }
+        }
+
+
+        return null;
+
+    }
     
     public  static boolean removeCustomer( int id)throws CustomerNotFoundException
     {

@@ -9,7 +9,7 @@ package jstore;
  */
 public class Item
 {
-    private int id;
+    private int id= DatabaseItem.getLastItemId() + 1;
     private String name;
     private int price;
     private Supplier supplier;
@@ -18,15 +18,13 @@ public class Item
 
     /**
      * Membuat Item.
-     * @param id            id item yang akan dibuat
      * @param name          nama item yang akan dibuat
      * @param price         harga dari item yang akan dibuat
      * @param category      kategori dari item yang akan dibuat
      * @param supplier      supplier dari item yang akan dibuat
      */
-    public Item(int id, String name,ItemStatus status, int price, ItemCategory category, Supplier supplier)
+    public Item( String name,ItemStatus status, int price, ItemCategory category, Supplier supplier)
     {
-        this.id=id;
         this.name=name;
         this.status=status;
         this.price=price;

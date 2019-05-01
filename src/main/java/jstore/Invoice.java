@@ -9,7 +9,7 @@ import java.util.*;
  */
 public abstract class Invoice {
 
-    private int id;
+    private int id = 0;
     private ArrayList<Integer> item;
     private Calendar date;
     private int totalPrice;
@@ -21,9 +21,8 @@ public abstract class Invoice {
 
     public Invoice(ArrayList<Integer> item) {
         this.item = item;
-        date = new GregorianCalendar();
-
-        id = DatabaseInvoice.getLastInvoiceId() + 1;
+        this.date = new GregorianCalendar();
+        this.id = DatabaseInvoice.getLastInvoiceId() + 1;
 
         totalPrice = 0;
         for (int i : this.item) {

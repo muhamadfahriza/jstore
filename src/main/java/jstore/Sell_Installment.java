@@ -10,8 +10,8 @@ import java.util.*;
 public class Sell_Installment extends Invoice
 {
     // instance variables - replace the example below with your own
-    private static InvoiceType INVOICE_TYPE = InvoiceType.Buy;
-    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.PAID;
+    private static InvoiceType INVOICE_TYPE = InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.INSTALLMENT;
     private int installmentPeriod;
     private int installmentPrice;
     private Customer customer;
@@ -27,7 +27,7 @@ public class Sell_Installment extends Invoice
         super(item);
         this.installmentPeriod=installmentPeriod;
         this.customer=customer;
-        isActive = true;
+        super.setIsActive(true);
         
     }
 
